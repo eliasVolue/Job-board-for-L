@@ -75,9 +75,6 @@
   <h2 class="section">🔥 Fastest hiring in Stockholm right now</h2>
   <div class="sub" style="margin-top:-4px;margin-bottom:14px">The tracked companies with the most open roles in/near central Stockholm today (all functions) — so you can see who's scaling and skim their boards yourself. Refreshed daily.</div>
   <div id="fastest"></div>
-
-  <h2 class="section">⚠️ Skipped — outside Stockholm city</h2>
-  <div id="excluded"></div>
 </div>
 
 <script>
@@ -123,12 +120,6 @@ const fastest = [
   {co:"Teamtailor", n:"5", what:"Recruitment-software scaleup", url:"https://career.teamtailor.com/jobs"},
 ];
 
-const excludedJobs = [
-  {role:"Community Manager, Virtual Spaces", company:"Lovable", loc:"New York · London · Boston", fit:55,
-   why:"Dug into the exact locations today — the role page lists New York, London and Boston, on-site, and Stockholm isn't one of them. Perfect-fit community role at a great company, just not here. Skipping per the central-Stockholm rule.",
-   reason:"Locations: NY / London / Boston — no Stockholm", url:"https://lovable.dev/careers/community-manager-virtual-spaces-41d9ea"},
-];
-
 const medal = r => r===1?"g":r===2?"s":r===3?"b":"";
 
 function render(filter){
@@ -162,19 +153,6 @@ document.getElementById("fastest").innerHTML = fastest.map(f=>`
   <div class="watch">
     <div class="role">${f.co} · <b style="color:var(--accent2)">${f.n} open roles</b> <a href="${f.url}" target="_blank" rel="noopener">↗ see all</a></div>
     <div class="why">${f.what}</div>
-  </div>`).join("");
-
-document.getElementById("excluded").innerHTML = excludedJobs.map(j => `
-  <div class="row locflag">
-    <div class="rank">⚠</div>
-    <div class="body">
-      <div class="role">${j.role} <span class="company">· ${j.company}</span></div>
-      <div class="loc bad">⚠ ${j.loc} — ${j.reason}</div>
-      <div class="why">${j.why}</div>
-    </div>
-    <div class="side">
-      <a class="apply" style="background:transparent;color:var(--warn);border:1px solid var(--warn)" href="${j.url}" target="_blank" rel="noopener">View ↗</a>
-    </div>
   </div>`).join("");
 
 document.querySelectorAll(".filters button").forEach(btn=>{
