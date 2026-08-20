@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Stockholm Job Board — L&D & Community</title>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f6f7f9; --card:#ffffff; --card2:#f0f2f6; --line:#e2e6ee;
+    --txt:#1a1d26; --mut:#697086; --accent:#3b5bff; --accent2:#12a37f;
+    --gold:#e0a500; --silver:#8a93a6; --bronze:#c07a3e;
+    --live:#12a37f; --warn:#c9791a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;padding:30px 20px 70px}
+  .wrap{max-width:960px;margin:0 auto}
+  h1{font-size:25px;margin:0 0 6px;letter-spacing:-.3px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:4px}
+  .fresh{color:var(--live);font-size:13px;font-weight:600;margin-bottom:20px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .filters button{background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;transition:.15s}
+  .filters button:hover{border-color:var(--accent)}
+  .filters button.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+  .row{display:flex;gap:16px;align-items:stretch;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;transition:.15s;box-shadow:0 1px 2px rgba(20,25,40,.03)}
+  .row:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(59,91,255,.08)}
+  .row.locflag{border-left:4px solid var(--warn)}
+  .rank{flex:0 0 44px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:21px;color:var(--mut)}
+  .rank.g{color:var(--gold)} .rank.s{color:var(--silver)} .rank.b{color:var(--bronze)}
+  .body{flex:1;min-width:0}
+  .role{font-size:16px;font-weight:650;letter-spacing:-.2px}
+  .company{color:var(--accent);font-weight:600}
+  .loc{color:var(--mut);font-size:13px;margin:2px 0 8px}
+  .loc.bad{color:var(--warn);font-weight:600}
+  .why{font-size:13.5px;color:#3a4152;margin:0 0 10px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .tag{font-size:11.5px;padding:3px 9px;border-radius:6px;border:1px solid var(--line);color:var(--mut);white-space:nowrap;background:var(--card2)}
+  .tag.cat{color:var(--accent2);border-color:#bfe6da;background:#e9f7f2}
+  .tag.live{color:var(--live);border-color:#bfe6da;background:#e9f7f2}
+  .side{flex:0 0 150px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .fit{font-size:11.5px;color:var(--mut)}
+  .fitbar{height:7px;background:var(--card2);border-radius:99px;overflow:hidden;margin-top:4px}
+  .fitbar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px}
+  .apply{display:inline-block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:650;font-size:13px;padding:9px 12px;border-radius:9px;transition:.15s}
+  .apply:hover{filter:brightness(1.08)}
+  h2.section{font-size:14px;color:var(--mut);text-transform:uppercase;letter-spacing:1px;margin:32px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .watch{background:var(--card2);border:1px dashed var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px}
+  .watch a{color:var(--accent);text-decoration:none}
+  .watch .role{font-size:14px}
+  .watch .why{margin-bottom:0;margin-top:4px}
+  @media(max-width:680px){
+    .row{flex-wrap:wrap}
+    .side{flex-basis:100%;flex-direction:row;align-items:center;justify-content:space-between}
+    .side .apply{flex:0 0 auto;padding:9px 18px}
+    .fitwrap{flex:1}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🏆 Your Stockholm Job Board</h1>
+  <div class="sub">L&amp;D · People · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
+  <div class="fresh">✅ Freshly checked 20 Aug 2026 — every link opened in a browser and confirmed live.</div>
+
+  <div class="filters">
+    <button class="active" data-f="all">Everything</button>
+    <button data-f="ld">L&amp;D</button>
+    <button data-f="people">People</button>
+    <button data-f="community">Community</button>
+  </div>
+
+  <div id="board"></div>
+  <div id="empty" style="display:none;color:var(--mut);font-size:13.5px;padding:8px 2px">Nothing pure-L&amp;D open in central Stockholm right now — your closest picks are the People roles.</div>
+
+  <h2 class="section">👀 Keep an eye on these</h2>
+  <div id="watch"></div>
+
+  <h2 class="section">⚠️ Skipped — outside Stockholm city</h2>
+  <div id="excluded"></div>
+</div>
+
+<script>
+const jobs = [
+  {rank:1, cat:"people", catLabel:"People", role:"Global People Operations Lead", company:"Lovable", loc:"Stockholm — Norrmalm/City", fit:78,
+   why:"Lead and build out Lovable's People team — onboarding, lifecycle, all the processes at scale. Plays right to your HR-generalist side. More People Ops than pure learning design, but a big seat at the hottest company on this list.",
+   badges:["AI unicorn ~$1.8B","hypergrowth"], url:"https://lovable.dev/careers/global-people-operations-lead-dbdb34"},
+  {rank:2, cat:"community", catLabel:"Community", role:"Community and Events Manager", company:"Sting", loc:"Stockholm — Östermalm (A House)", fit:75,
+   why:"Run the community and events at Sweden's top startup accelerator — demo days, the 170+ alumni network, ecosystem events. A real community/events lead role at your level, and it plugs you straight into the Stockholm tech scene. Not a tech company itself, but exactly the ecosystem seat worth having.",
+   badges:["top accelerator","ecosystem hub"], url:"https://www.linkedin.com/jobs/view/community-and-events-manager-at-sting-4411644462/"},
+  {rank:3, cat:"people", catLabel:"People", role:"People Program Manager, Market Expansion", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:74,
+   why:"Set up onboarding and people processes as Legora opens new markets. A People seat at a genuine rocket. Lighter on learning design, heavier on program-building — which you're strong at.",
+   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/66cbe98a-1652-46ae-bcae-9252af6d61ed"},
+  {rank:4, cat:"people", catLabel:"People", role:"HR Business Partner (Eng/Product/Design)", company:"Lovable", loc:"Stockholm or London — pick Stockholm", fit:72,
+   why:"Senior HRBP to Lovable's product & engineering org — the classic 10+ yrs partner role. Listed as \"Stockholm or London\", so just make sure you select Stockholm when you apply.",
+   badges:["AI unicorn ~$1.8B","NEW this week"], url:"https://lovable.dev/careers/hr-business-partner-engineering-product-design-epd-82b7f1"},
+  {rank:5, cat:"people", catLabel:"People", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:60,
+   why:"Core People Ops role at the same rocket. A step below your level, but honestly a fast way into a top-tier People team if you want in the door quickly.",
+   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/d6807387-ba90-423f-9c50-3b4df51dec2b"},
+  {rank:6, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:58,
+   why:"Run the community — Discord, forums, player feedback — at the Vermintide / Darktide studio. Below your seniority, but it's your way into the gaming-community world, and it's right in Söder.",
+   badges:["~180–200 staff","profitable"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
+];
+
+const watch = [
+  {role:"Sana Labs — the on-brand one", note:"AI learning platform (Workday-owned now, still a real Stockholm team). Nothing People/L&D open today, but this is THE place for a learning-strategy leader — check it often.", url:"https://sanalabs.com/careers"},
+  {role:"Spotify — filter Stockholm + Learning/People", note:"Checked today — no L&D/People/Community role open in Stockholm right now. They run a real L&D team here though, so worth a saved alert.", url:"https://www.lifeatspotify.com/jobs"},
+  {role:"Klarna & Mentimeter", note:"Both checked today — nothing L&D/People/Community open. Healthy, central Stockholm, worth watching.", url:"https://www.klarna.com/careers/openings"},
+  {role:"Norrsken House & Epicenter — community houses", note:"Both central (Norrsken on Birger Jarlsgatan/Vasastan, Epicenter on Mäster Samuelsgatan/Norrmalm) and both cycle community & events roles often. Nothing live in Stockholm today — good ones to set an alert on.", url:"https://careers.norrskenfoundation.org/jobs"},
+  {role:"Legora — extra People roles (if you want them)", note:"People Tech Manager (HRIS-ish) and Total Rewards Manager/Analyst (comp) are also open at the Norrmalm HQ — off your core L&D/community track, but there if you're interested.", url:"https://jobs.ashbyhq.com/legora"},
+];
+
+const excludedJobs = [
+  {role:"Community Manager, Virtual Spaces", company:"Lovable", loc:"Not Stockholm", fit:55,
+   why:"Great company, but checked again today — this one drops off when you filter the board to Stockholm, so it's remote/elsewhere. Skipping it per the central-Stockholm rule.",
+   reason:"Confirmed not Stockholm", url:"https://lovable.dev/careers/community-manager-virtual-spaces-41d9ea"},
+];
+
+const medal = r => r===1?"g":r===2?"s":r===3?"b":"";
+
+function render(filter){
+  const board = document.getElementById("board");
+  let list = jobs.filter(j => filter==="all" ? true : j.cat===filter);
+  document.getElementById("empty").style.display = list.length ? "none" : "block";
+  board.innerHTML = list.map(j => `
+    <div class="row">
+      <div class="rank ${medal(j.rank)}">${j.rank<=3?["🥇","🥈","🥉"][j.rank-1]:"#"+j.rank}</div>
+      <div class="body">
+        <div class="role">${j.role} <span class="company">· ${j.company}</span></div>
+        <div class="loc">📍 ${j.loc}</div>
+        <div class="why">${j.why}</div>
+        <div class="tags">
+          <span class="tag cat">${j.catLabel}</span>
+          <span class="tag live">● live</span>
+          ${j.badges.map(b=>`<span class="tag">${b}</span>`).join("")}
+        </div>
+      </div>
+      <div class="side">
+        <div class="fitwrap">
+          <div class="fit">Fit ${j.fit}/100</div>
+          <div class="fitbar"><i style="width:${j.fit}%"></i></div>
+        </div>
+        <a class="apply" href="${j.url}" target="_blank" rel="noopener">Apply ↗</a>
+      </div>
+    </div>`).join("");
+}
+
+document.getElementById("watch").innerHTML = watch.map(w=>`
+  <div class="watch">
+    <div class="role">${w.role} <a href="${w.url}" target="_blank" rel="noopener">↗ open board</a></div>
+    <div class="why">${w.note}</div>
+  </div>`).join("");
+
+document.getElementById("excluded").innerHTML = excludedJobs.map(j => `
+  <div class="row locflag">
+    <div class="rank">⚠</div>
+    <div class="body">
+      <div class="role">${j.role} <span class="company">· ${j.company}</span></div>
+      <div class="loc bad">⚠ ${j.loc} — ${j.reason}</div>
+      <div class="why">${j.why}</div>
+    </div>
+    <div class="side">
+      <a class="apply" style="background:transparent;color:var(--warn);border:1px solid var(--warn)" href="${j.url}" target="_blank" rel="noopener">View ↗</a>
+    </div>
+  </div>`).join("");
+
+document.querySelectorAll(".filters button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    render(btn.dataset.f);
+  });
+});
+
+render("all");
+</script>
+</body>
+</html>
