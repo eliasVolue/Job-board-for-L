@@ -65,6 +65,7 @@
   <div class="filters">
     <button class="active" data-f="all">Everything</button>
     <button data-f="ld">L&amp;D &amp; Leadership</button>
+    <button data-f="people">People</button>
     <button data-f="community">Community</button>
   </div>
 
@@ -87,12 +88,27 @@ const jobs = [
   {rank:2, cat:"community", catLabel:"Community", role:"Growth & Community Lead", company:"Furhat Robotics", loc:"Stockholm — Vasastan (Sankt Eriksplan)", fit:78,
    why:"Blends community-building with growth at a fast-growing Stockholm AI / social-robotics scaleup, central in Vasastan. A senior seat where you shape the community and culture, not just execute.",
    badges:["AI/robotics scaleup","community + growth"], url:"https://emp.jobylon.com/companies/955-furhat-robotics/"},
-  {rank:3, cat:"ld", catLabel:"L&D / Leadership", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Norrmalm/City (Regeringsgatan HQ)", fit:72,
-   why:"The one clearly L&D-flavoured role open right now — talent management and how people and leaders grow as the org scales, which is your leadership-development sweet spot. Caveat: H&M is a traditional retailer, not a tech scaleup, and I couldn't read the full description — give it a 2-min skim to confirm it's development/learning (not recruiting) before you invest.",
+  {rank:3, cat:"people", catLabel:"People (L&D-adjacent)", role:"Global People Operations Lead", company:"Lovable", loc:"Stockholm — Norrmalm/City (Regeringsgatan 25)", fit:74,
+   why:"Lead and build out Lovable's People team — onboarding, lifecycle, processes at scale. More People Ops than pure learning, but it overlaps heavily with L&D and it's a big seat at the hottest company on this list. A sensible pivot that keeps you people-oriented.",
+   badges:["AI unicorn ~$1.8B","hypergrowth"], url:"https://lovable.dev/careers/global-people-operations-lead-dbdb34"},
+  {rank:4, cat:"ld", catLabel:"L&D / Leadership", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Norrmalm/City (Regeringsgatan HQ)", fit:72,
+   why:"The clearest L&D-flavoured role open — talent management and how people and leaders grow as the org scales, your leadership-development sweet spot. Caveat: H&M is a traditional retailer and I couldn't read the full description — give it a quick skim to confirm it's development/learning (not recruiting) before you invest.",
    badges:["huge L&D org","central HQ","check the JD"], url:"https://www.linkedin.com/jobs/view/4455327304/"},
-  {rank:4, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:60,
+  {rank:5, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Program Manager, Market Expansion", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:70,
+   why:"Build the people processes and programs as Legora opens new markets — program-building you're strong at, and adjacent to L&D/enablement. A People seat at a genuine rocket.",
+   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/66cbe98a-1652-46ae-bcae-9252af6d61ed"},
+  {rank:6, cat:"people", catLabel:"People", role:"HR Business Partner (Eng/Product/Design)", company:"Lovable", loc:"Stockholm or London — pick Stockholm", fit:69,
+   why:"Senior HRBP to Lovable's product & engineering org, with real leadership-coaching and org-development scope alongside the partnering. Listed as \"Stockholm or London\" — select Stockholm when you apply.",
+   badges:["AI unicorn ~$1.8B"], url:"https://lovable.dev/careers/hr-business-partner-engineering-product-design-epd-82b7f1"},
+  {rank:7, cat:"people", catLabel:"People", role:"HR Business Partner, Nordics", company:"Netflix", loc:"Stockholm — Norrmalm (Nordics remit)", fit:66,
+   why:"Senior people-partner role at one of the most reputable names in tech, Nordics remit from the central-Stockholm office. More HR-partner than L&D, but a strong people seat if you're open to a pivot — flag me if you'd rather keep the board tighter.",
+   badges:["reputable tech","Nordics remit"], url:"https://www.linkedin.com/jobs/view/4444144537/"},
+  {rank:8, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:60,
    why:"Run the player community — Discord, forums, feedback — at the Vermintide / Darktide studio. More junior than your level, but a fun, creative community seat right in Söder.",
    badges:["~180–200 staff","profitable gaming"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
+  {rank:9, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:58,
+   why:"Core People Ops role at the same rocket — a step below your level, but a fast way into a top-tier People team if you want in the door quickly.",
+   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/d6807387-ba90-423f-9c50-3b4df51dec2b"},
 ];
 
 const fastest = [
