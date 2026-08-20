@@ -59,21 +59,21 @@
 <body>
 <div class="wrap">
   <h1>🏆 Your Stockholm Job Board</h1>
-  <div class="sub">L&amp;D · People · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
+  <div class="sub">L&amp;D · Leadership development · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
   <div class="fresh">✅ Freshly checked 20 Aug 2026 — every link opened in a browser and confirmed live.</div>
 
   <div class="filters">
     <button class="active" data-f="all">Everything</button>
-    <button data-f="ld">L&amp;D</button>
-    <button data-f="people">People</button>
+    <button data-f="ld">L&amp;D &amp; Leadership</button>
     <button data-f="community">Community</button>
   </div>
 
   <div id="board"></div>
-  <div id="empty" style="display:none;color:var(--mut);font-size:13.5px;padding:8px 2px">Nothing pure-L&amp;D open in central Stockholm right now — your closest picks are the People roles.</div>
+  <div id="empty" style="display:none;color:var(--mut);font-size:13.5px;padding:8px 2px">Nothing in this category open in central Stockholm today — check the "Fastest hiring" list below for boards worth watching.</div>
 
-  <h2 class="section">👀 Keep an eye on these</h2>
-  <div id="watch"></div>
+  <h2 class="section">🔥 Fastest hiring in Stockholm right now</h2>
+  <div class="sub" style="margin-top:-4px;margin-bottom:14px">The tracked companies with the most open roles in/near central Stockholm today (all functions) — so you can see who's scaling and skim their boards yourself. Refreshed daily.</div>
+  <div id="fastest"></div>
 
   <h2 class="section">⚠️ Skipped — outside Stockholm city</h2>
   <div id="excluded"></div>
@@ -81,43 +81,30 @@
 
 <script>
 const jobs = [
-  {rank:1, cat:"community", catLabel:"Community", role:"Community and Events Manager", company:"Sting", loc:"Stockholm — central (A House, Östermalm)", fit:80,
-   why:"Run the community and events at Sweden's top startup accelerator — demo days, the 170+ alumni network, ecosystem events. A real community/events lead role at your level, and it plugs you straight into the Stockholm tech scene. Exactly the ecosystem seat that's your superpower.",
+  {rank:1, cat:"community", catLabel:"Community", role:"Community and Events Manager", company:"Sting", loc:"Stockholm — central (A House, Östermalm)", fit:84,
+   why:"Run the community and events at Sweden's top startup accelerator — demo days, the 170+ alumni network, ecosystem events. Building an inspiring community IS the job, and it plugs you straight into the Stockholm tech scene. Your single best fit right now.",
    badges:["top accelerator","ecosystem hub"], url:"https://www.linkedin.com/jobs/view/community-and-events-manager-at-sting-4411644462/"},
-  {rank:2, cat:"community", catLabel:"Community", role:"Growth & Community Lead", company:"Furhat Robotics", loc:"Stockholm — Vasastan (Sankt Eriksplan)", fit:76,
-   why:"Blends community-building with growth — squarely your superpower. Fast-growing Stockholm AI / social-robotics scaleup, central in Vasastan. A senior community/ecosystem seat, not an execution role.",
-   badges:["AI/robotics scaleup","community + growth","NEW"], url:"https://emp.jobylon.com/companies/955-furhat-robotics/"},
-  {rank:3, cat:"people", catLabel:"People", role:"Global People Operations Lead", company:"Lovable", loc:"Stockholm — Norrmalm/City (Regeringsgatan 25)", fit:74,
-   why:"Lead and build out Lovable's People team — onboarding, lifecycle, all the processes at scale. Plays right to your HR-generalist side. More People Ops than learning, but a big seat at the hottest company on this list.",
-   badges:["AI unicorn ~$1.8B","hypergrowth"], url:"https://lovable.dev/careers/global-people-operations-lead-dbdb34"},
-  {rank:4, cat:"ld", catLabel:"Talent / L&D", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Norrmalm/City (Regeringsgatan HQ)", fit:73,
-   why:"Your single most on-title match — talent management and how people grow as the org scales, squarely your Talent & Growth sweet spot. H&M Group is a traditional retailer rather than a tech rocket, but it runs a huge central-Stockholm people/L&D org and this is a senior seat. On-site at the Regeringsgatan HQ. Posted 2 days ago — 97 applicants already, so move fast.",
-   badges:["huge L&D org","central HQ","NEW"], url:"https://www.linkedin.com/jobs/view/4455327304/"},
-  {rank:5, cat:"people", catLabel:"People", role:"People Program Manager, Market Expansion", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:70,
-   why:"Set up onboarding and people processes as Legora opens new markets. A People seat at a genuine rocket. Lighter on learning design, heavier on program-building — which you're strong at.",
-   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/66cbe98a-1652-46ae-bcae-9252af6d61ed"},
-  {rank:6, cat:"people", catLabel:"People", role:"HR Business Partner (Eng/Product/Design)", company:"Lovable", loc:"Stockholm or London — pick Stockholm", fit:69,
-   why:"Senior HRBP to Lovable's product & engineering org — the classic 10+ yrs partner role. Listed as \"Stockholm or London\", so just make sure you select Stockholm when you apply.",
-   badges:["AI unicorn ~$1.8B"], url:"https://lovable.dev/careers/hr-business-partner-engineering-product-design-epd-82b7f1"},
-  {rank:7, cat:"people", catLabel:"People", role:"HR Business Partner, Nordics", company:"Netflix", loc:"Stockholm — Norrmalm (Nordics remit)", fit:66,
-   why:"Senior HRBP covering the Nordics at one of the most reputable names in tech. People-partner work — org, performance, culture — rather than pure L&D, and a Nordics-wide remit, but the office is central Stockholm. NEW, posted very recently.",
-   badges:["reputable tech","Nordics remit","NEW"], url:"https://www.linkedin.com/jobs/view/4444144537/"},
-  {rank:8, cat:"people", catLabel:"People", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:58,
-   why:"Core People Ops role at the same rocket. A step below your level, but honestly a fast way into a top-tier People team if you want in the door quickly.",
-   badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/d6807387-ba90-423f-9c50-3b4df51dec2b"},
-  {rank:9, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:57,
-   why:"Run the community — Discord, forums, player feedback — at the Vermintide / Darktide studio. Below your seniority, but it's your way into the gaming-community world, and it's right in Söder.",
-   badges:["~180–200 staff","profitable"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
+  {rank:2, cat:"community", catLabel:"Community", role:"Growth & Community Lead", company:"Furhat Robotics", loc:"Stockholm — Vasastan (Sankt Eriksplan)", fit:78,
+   why:"Blends community-building with growth at a fast-growing Stockholm AI / social-robotics scaleup, central in Vasastan. A senior seat where you shape the community and culture, not just execute.",
+   badges:["AI/robotics scaleup","community + growth"], url:"https://emp.jobylon.com/companies/955-furhat-robotics/"},
+  {rank:3, cat:"ld", catLabel:"L&D / Leadership", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Norrmalm/City (Regeringsgatan HQ)", fit:72,
+   why:"The one clearly L&D-flavoured role open right now — talent management and how people and leaders grow as the org scales, which is your leadership-development sweet spot. Caveat: H&M is a traditional retailer, not a tech scaleup, and I couldn't read the full description — give it a 2-min skim to confirm it's development/learning (not recruiting) before you invest.",
+   badges:["huge L&D org","central HQ","check the JD"], url:"https://www.linkedin.com/jobs/view/4455327304/"},
+  {rank:4, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:60,
+   why:"Run the player community — Discord, forums, feedback — at the Vermintide / Darktide studio. More junior than your level, but a fun, creative community seat right in Söder.",
+   badges:["~180–200 staff","profitable gaming"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
 ];
 
-const watch = [
-  {role:"Sana Labs — the on-brand one", note:"AI learning platform (Workday-owned now, still a real Stockholm team). Nothing People/L&D open today, but this is THE place for a learning-strategy leader — check it often.", url:"https://sanalabs.com/careers"},
-  {role:"Spotify — filter Stockholm + Learning/People", note:"Checked today — no L&D/People/Community role open in Stockholm right now. They run a real L&D team here though, so worth a saved alert.", url:"https://www.lifeatspotify.com/jobs"},
-  {role:"Klarna & Mentimeter", note:"Both checked today — nothing L&D/People/Community open. Healthy, central Stockholm, worth watching.", url:"https://www.klarna.com/careers/openings"},
-  {role:"Norrsken House & Epicenter — community houses", note:"Both central (Norrsken on Birger Jarlsgatan/Vasastan, Epicenter on Mäster Samuelsgatan/Norrmalm) and both cycle community & events roles often. Nothing live in Stockholm today — good ones to set an alert on.", url:"https://careers.norrskenfoundation.org/jobs"},
-  {role:"Legora — extra People roles (if you want them)", note:"People Tech Manager (HRIS-ish) and Total Rewards Manager/Analyst (comp) are also open at the Norrmalm HQ — off your core L&D/community track, but there if you're interested.", url:"https://jobs.ashbyhq.com/legora"},
-  {role:"Evroc & Flower — Stockholm scale-ups worth watching", note:"Added to the search per your ask. Both checked today. Evroc (sovereign AI cloud, well-funded, Stockholm) has only engineering + a Partnership Manager open; Flower (virtual-power-plant energy tech, Stockholm, 30+ nationalities) has 13 roles, all commercial/eng/finance/legal. Neither has anything People/L&D/community right now, but both are scaling fast — good alert candidates as they build out their teams.", url:"https://flower.teamtailor.com/jobs"},
-  {role:"Big tech with central-Stockholm offices (AWS · Microsoft · Google)", note:"Now in scope even without a Swedish HQ. Checked AWS today — 35 open Stockholm roles but all sales, solutions-architect and IT, nothing People/L&D/community. Microsoft & Google keep small central-Stockholm offices and post these roles here only rarely; nothing live today. Worth a saved alert — when they do hire L&D/People here, it's a strong, well-paying seat.", url:"https://www.amazon.jobs/en/search?base_query=&loc_query=Stockholm"},
+const fastest = [
+  {co:"Legora", n:"57", what:"Legal-AI rocket · Norrmalm HQ", url:"https://jobs.ashbyhq.com/legora"},
+  {co:"Lovable", n:"~36", what:"AI app-builder unicorn · Norrmalm", url:"https://lovable.dev/careers"},
+  {co:"Klarna", n:"~30", what:"Fintech giant · central Stockholm", url:"https://jobs.deel.com/klarna"},
+  {co:"Spotify", n:"24", what:"Music-tech · central Stockholm", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
+  {co:"Mentimeter", n:"15", what:"Interactive-presentation SaaS · City", url:"https://job-boards.greenhouse.io/mentimeter"},
+  {co:"Epidemic Sound", n:"13", what:"Music for creators · Stockholm HQ (Söder)", url:"https://jobs.ashbyhq.com/epidemic-sound"},
+  {co:"Flower", n:"13", what:"Energy / virtual-power-plant scaleup", url:"https://flower.teamtailor.com/jobs"},
+  {co:"Evroc", n:"6", what:"Sovereign-cloud scaleup", url:"https://evroc.com/careers"},
+  {co:"Teamtailor", n:"5", what:"Recruitment-software scaleup", url:"https://career.teamtailor.com/jobs"},
 ];
 
 const excludedJobs = [
@@ -155,10 +142,10 @@ function render(filter){
     </div>`).join("");
 }
 
-document.getElementById("watch").innerHTML = watch.map(w=>`
+document.getElementById("fastest").innerHTML = fastest.map(f=>`
   <div class="watch">
-    <div class="role">${w.role} <a href="${w.url}" target="_blank" rel="noopener">↗ open board</a></div>
-    <div class="why">${w.note}</div>
+    <div class="role">${f.co} · <b style="color:var(--accent2)">${f.n} open roles</b> <a href="${f.url}" target="_blank" rel="noopener">↗ see all</a></div>
+    <div class="why">${f.what}</div>
   </div>`).join("");
 
 document.getElementById("excluded").innerHTML = excludedJobs.map(j => `
