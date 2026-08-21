@@ -60,7 +60,7 @@
 <div class="wrap">
   <h1>🏆 Your Stockholm Job Board</h1>
   <div class="sub">L&amp;D · Leadership development · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
-  <div class="fresh">✅ Freshly checked 21 Aug 2026 — every link opened in a browser and confirmed live.</div>
+  <div class="fresh">✅ Freshly checked 21 Aug 2026 — swept ~80 tracked companies across careers pages, ATS boards &amp; LinkedIn; every listed link opened in a browser and confirmed live.</div>
 
   <div class="filters">
     <button class="active" data-f="all">Everything</button>
@@ -109,18 +109,22 @@ const jobs = [
   {rank:10, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (on-site)", fit:58,
    why:"Core People Ops role at the same rocket — a step below your level, but a fast way into a top-tier People team if you want in the door quickly.",
    badges:["legal-AI rocket","$100M+ ARR"], url:"https://jobs.ashbyhq.com/legora/d6807387-ba90-423f-9c50-3b4df51dec2b"},
+  {rank:11, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Coordinator", company:"Avalanche Studios", loc:"Stockholm — Södermalm (Västgötagatan)", fit:54,
+   why:"New from a full ~80-company sweep: a seat in Avalanche's People Organization — onboarding, people processes and learning-culture at the Just Cause / Contraband AAA studio. It's fixed-term and coordinator-level (below your seniority), but a real People foot-in-the-door at a big central-Stockholm studio. Verified live today.",
+   badges:["AAA game studio","fixed-term","NEW"], url:"https://jobs.lever.co/avalanchestudios/7bcd140b-b7ee-4d9b-9569-15927d04f464"},
 ];
 
 const fastest = [
   {co:"Legora", n:"57", what:"Legal-AI rocket · Norrmalm HQ", url:"https://jobs.ashbyhq.com/legora"},
   {co:"Lovable", n:"~36", what:"AI app-builder unicorn · Norrmalm", url:"https://lovable.dev/careers"},
   {co:"Klarna", n:"~30", what:"Fintech giant · central Stockholm", url:"https://jobs.deel.com/klarna"},
-  {co:"Spotify", n:"24", what:"Music-tech · central Stockholm", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
-  {co:"Mentimeter", n:"15", what:"Interactive-presentation SaaS · City", url:"https://job-boards.greenhouse.io/mentimeter"},
-  {co:"Epidemic Sound", n:"13", what:"Music for creators · Stockholm HQ (Söder)", url:"https://jobs.ashbyhq.com/epidemic-sound"},
+  {co:"Spotify", n:"24", what:"Music-tech · Norrmalm HQ", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
+  {co:"Embark Studios", n:"17", what:"AAA game studio · central Stockholm", url:"https://careers.embark-studios.com/jobs"},
+  {co:"Avalanche Studios", n:"17", what:"AAA game studio · Södermalm", url:"https://jobs.lever.co/avalanchestudios"},
+  {co:"Voi", n:"~16", what:"Micro-mobility scaleup · central Stockholm", url:"https://careers.voi.com/jobs?location=Stockholm"},
+  {co:"Mentimeter", n:"15", what:"Interactive-presentation SaaS · Vasastan", url:"https://job-boards.greenhouse.io/mentimeter"},
   {co:"Flower", n:"13", what:"Energy / virtual-power-plant scaleup", url:"https://flower.teamtailor.com/jobs"},
-  {co:"Evroc", n:"6", what:"Sovereign-cloud scaleup", url:"https://evroc.com/careers"},
-  {co:"Teamtailor", n:"5", what:"Recruitment-software scaleup", url:"https://career.teamtailor.com/jobs"},
+  {co:"Epidemic Sound", n:"8", what:"Music for creators · Stockholm HQ", url:"https://jobs.ashbyhq.com/epidemic-sound"},
 ];
 
 const medal = r => r===1?"g":r===2?"s":r===3?"b":"";
