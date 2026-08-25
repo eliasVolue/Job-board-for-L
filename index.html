@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<script type="application/json" id="cowork-artifact-meta">
+<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
 {
   "name": "Stockholm Job Board",
   "schemaVersion": 1,
@@ -68,7 +67,7 @@
 <div class="wrap">
   <h1>🏆 Your Stockholm Job Board</h1>
   <div class="sub">L&amp;D · Leadership development · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
-  <div class="fresh">✅ Freshly checked 24 Aug 2026 — swept ~85 tracked + newly-raised companies across careers pages, ATS boards, The Hub &amp; LinkedIn; every listed link opened in a browser and confirmed live today.</div>
+  <div class="fresh">✅ Freshly checked 25 Aug 2026 — swept ~85 tracked + newly-raised companies across careers pages, ATS boards, The Hub, StartupMap &amp; LinkedIn; every listed link opened in a browser and confirmed live today.</div>
 
   <div class="filters">
     <button class="active" data-f="all">Everything</button>
@@ -89,46 +88,50 @@
 const jobs = [
   {rank:1, cat:"community", catLabel:"Community", role:"Growth & Community Lead", company:"Furhat Robotics", loc:"Stockholm — Vasastan (Torsgatan 39, Sankt Eriksplan)", fit:80,
    why:"The best community fit on the board — a senior Lead seat owning both community-building and growth at Furhat, the Stockholm social-robotics / AI scaleup. You'd shape the community and culture, not just execute — squarely your superpower, and central in Vasastan.",
-   badges:["AI/robotics scaleup","community + growth"], url:"https://emp.jobylon.com/companies/955-furhat-robotics/"},
+   badges:["AI/robotics scaleup","community + growth"], url:"https://emp.jobylon.com/jobs/365867-furhat-robotics-growth-community-lead-stockholm-sweden-full-time/"},
   {rank:2, cat:"people", catLabel:"People", role:"HR Business Partner — Engineering, Product, Design", company:"Lovable", loc:"Stockholm or London — pick Stockholm (Norrmalm/City)", fit:76,
    why:"Senior People Partner to Lovable's biggest org, and the scope is squarely yours: org design, manager & leadership coaching, change management and rolling out People programs. It's the hottest AI company on this list. Listed \"Stockholm or London\" — select Stockholm when you apply.",
    badges:["AI unicorn","org design + coaching"], url:"https://lovable.dev/careers/hr-business-partner-engineering-product-design-epd-82b7f1"},
-  {rank:3, cat:"ld", catLabel:"L&D / Leadership", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Norrmalm/City (Regeringsgatan HQ)", fit:74,
-   why:"The clearest L&D / leadership-development role open — leading the talent-management and \"grow\" agenda across H&M's Global Functions, owning how people and leaders develop as the org scales. H&M is a traditional retailer but runs a huge central-Stockholm L&D org, and this is your leadership-development sweet spot.",
-   badges:["huge L&D org","central HQ"], url:"https://career.hm.com/job/cac5fb7b-8767-4ebe-8e28-e7c26cb88138"},
+  {rank:3, cat:"ld", catLabel:"L&D / Leadership", role:"Talent Management and Grow Manager", company:"H&M Group", loc:"Stockholm — Årstadal (H&M HQ, Årstaängsvägen)", fit:74,
+   why:"The clearest L&D / leadership-development role open — leading the talent-management and \"grow\" agenda across H&M's Global Functions, owning how people and leaders develop as the org scales. H&M is a traditional retailer but runs a huge Stockholm L&D org, and this is your leadership-development sweet spot. (HQ sits just south of the centre in Årstadal, one metro hop from City.)",
+   badges:["huge L&D org","leadership development"], url:"https://career.hm.com/job/cac5fb7b-8767-4ebe-8e28-e7c26cb88138"},
   {rank:4, cat:"people", catLabel:"People (L&D-adjacent)", role:"Head of People Business Partners", company:"Voi", loc:"Stockholm — central HQ (hybrid)", fit:74,
-   why:"New this week: lead Voi's pan-European People Business Partner team from the central-Stockholm HQ. It's People leadership rather than pure L&D, but you'd partner on leadership development, succession and change, and coach a whole team — a senior seat at Europe's #1 micromobility scaleup. A sensible pivot that keeps you people- and development-oriented.",
-   badges:["micromobility #1","team leadership","NEW"], url:"https://careers.voi.com/jobs/8255060-head-of-people-business-partners"},
+   why:"Lead Voi's pan-European People Business Partner team from the central-Stockholm HQ. It's People leadership rather than pure L&D, but you'd partner on leadership development, succession and change, and coach a whole team — a senior seat at Europe's #1 micromobility scaleup. A sensible pivot that keeps you people- and development-oriented.",
+   badges:["micromobility #1","team leadership"], url:"https://careers.voi.com/jobs/8255060-head-of-people-business-partners"},
   {rank:5, cat:"ld", catLabel:"Org Development / Change", role:"OCM Advisory Manager — Organisational Change & Transformation", company:"Avanade", loc:"Stockholm — City (confirm office)", fit:70,
    why:"The genuine org-development pivot: organisational change management — driving adoption, training, leadership and stakeholder engagement through big transformations (incl. AI enablement). It's client-facing consulting rather than in-house L&D, but built on exactly your strengths. Avanade is the Accenture–Microsoft consultancy; reposted this week. Sanity-check the travel / office before you commit.",
    badges:["org change / transformation","consulting pivot"], url:"https://www.linkedin.com/jobs/view/4446572655/"},
   {rank:6, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Program Manager, Market Expansion", company:"Legora", loc:"Stockholm — Norrmalm (HQ, on-site)", fit:70,
-   why:"Build the people processes and programs as Legora opens new markets — program-building you're strong at, and adjacent to L&D / enablement. A People seat at a legal-AI rocket that's got 269 open roles right now.",
-   badges:["legal-AI rocket","269 open roles"], url:"https://jobs.ashbyhq.com/legora/66cbe98a-1652-46ae-bcae-9252af6d61ed"},
+   why:"Build the people processes and programs as Legora opens new markets — program-building you're strong at, and adjacent to L&D / enablement. A People seat at one of Stockholm's fastest-rising legal-AI rockets.",
+   badges:["legal-AI rocket","people programs"], url:"https://jobs.ashbyhq.com/legora/66cbe98a-1652-46ae-bcae-9252af6d61ed"},
   {rank:7, cat:"people", catLabel:"People (L&D-adjacent)", role:"Global People Operations Lead", company:"Lovable", loc:"Stockholm — Norrmalm/City (Regeringsgatan 25)", fit:68,
    why:"Lead and scale Lovable's global People Ops team across Sweden, the UK and the US. It leans operational — HRIS, payroll, compliance, lifecycle — more than pure learning, but it's a leadership seat where you manage and develop the team, at the hottest company here. A pivot that keeps you people-oriented if you're open to the ops side.",
    badges:["AI unicorn","ops-heavy"], url:"https://lovable.dev/careers/global-people-operations-lead-dbdb34"},
   {rank:8, cat:"people", catLabel:"People", role:"HR Business Partner, Nordics", company:"Netflix", loc:"Stockholm — Norrmalm (Nordics remit, on-site)", fit:66,
    why:"Senior people-partner role at one of the most reputable names in tech, Nordics remit from the central-Stockholm office. More HR-partner than L&D, but a strong people seat if you're open to a pivot.",
    badges:["reputable tech","Nordics remit"], url:"https://www.linkedin.com/jobs/view/4444144537/"},
-  {rank:9, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:60,
+  {rank:9, cat:"people", catLabel:"People", role:"Senior People Business Partner", company:"Meltwater", loc:"Stockholm — Östermalm (Brahegatan 10, hybrid)", fit:64,
+   why:"New this week: a senior People Business Partner seat at Meltwater (global media-intelligence tech), right in Östermalm. You'd partner leaders across the Nordics and Benelux/UK on org, performance and change. It supports the commercial org so it's more HRBP than pure L&D — but it's senior, central and reputable, a clean pivot if you're open to it.",
+   badges:["reputable tech","senior HRBP","NEW"], url:"https://meltwatercareers.ttcportals.com/jobs/17767846-senior-people-business-partner"},
+  {rank:10, cat:"community", catLabel:"Community", role:"Community Manager", company:"Fatshark", loc:"Stockholm — Södermalm (on-site)", fit:60,
    why:"Run the player community — social channels, Discord, forums, feedback — at the Vermintide / Darktide studio in Söder. More junior than your level, but a fun, creative community seat right in central Stockholm.",
    badges:["profitable gaming","Södermalm"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
-  {rank:10, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (HQ, on-site)", fit:56,
-   why:"Core People Ops role at the same legal-AI rocket — a step below your level, but a fast way into a top-tier People team if you want in the door quickly.",
-   badges:["legal-AI rocket","foot in the door"], url:"https://jobs.ashbyhq.com/legora/d6807387-ba90-423f-9c50-3b4df51dec2b"},
+  {rank:11, cat:"people", catLabel:"People (L&D-adjacent)", role:"HR Business Partner", company:"Waitwhile", loc:"Stockholm — central (hybrid)", fit:54,
+   why:"New this week: the first dedicated HR hire at Waitwhile, a Stockholm-founded scheduling SaaS (now part of Allegion). Broad generalist HRBP scope — you'd shape people practices from the ground up. A step toward generalist HR rather than pure L&D, but a build-it-yourself people seat. Swedish + English required.",
+   badges:["SaaS scaleup","build from scratch","NEW"], url:"https://careers.waitwhile.com/jobs/7951577-hr-business-partner"},
 ];
 
 const fastest = [
-  {co:"Legora", n:"58", what:"Legal-AI rocket · Norrmalm HQ", url:"https://jobs.ashbyhq.com/legora"},
-  {co:"Lovable", n:"~36", what:"AI app-builder unicorn · Norrmalm", url:"https://lovable.dev/careers"},
-  {co:"Spotify", n:"24", what:"Music-tech · Norrmalm HQ", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
-  {co:"Voi", n:"19", what:"Micro-mobility scaleup · central Stockholm", url:"https://careers.voi.com/jobs?location=Stockholm"},
+  {co:"Klarna", n:"~30", what:"Fintech giant · central Stockholm", url:"https://www.klarna.com/careers/jobs/"},
+  {co:"Spotify", n:"23", what:"Music-tech · Norrmalm HQ", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
+  {co:"Voi", n:"~19", what:"Micro-mobility scaleup · central Stockholm", url:"https://careers.voi.com/jobs"},
   {co:"Embark Studios", n:"17", what:"AAA game studio · central Stockholm", url:"https://careers.embark-studios.com/jobs"},
-  {co:"Avalanche Studios", n:"~15", what:"AAA game studio · Södermalm", url:"https://jobs.lever.co/avalanchestudios"},
-  {co:"Flower", n:"13", what:"Energy / virtual-power-plant scaleup", url:"https://flower.teamtailor.com/jobs"},
-  {co:"Epidemic Sound", n:"8", what:"Music for creators · Stockholm HQ", url:"https://jobs.ashbyhq.com/epidemic-sound"},
-  {co:"Mentimeter", n:"~5", what:"Interactive-presentation SaaS · Vasastan", url:"https://job-boards.greenhouse.io/mentimeter"},
+  {co:"Avalanche Studios", n:"17", what:"AAA game studio · Södermalm", url:"https://jobs.lever.co/avalanchestudios"},
+  {co:"Kry", n:"~16", what:"Digital-health scaleup · central Stockholm", url:"https://www.careers.kry.se/jobs"},
+  {co:"Mentimeter", n:"15", what:"Interactive-presentation SaaS · Vasastan", url:"https://job-boards.greenhouse.io/mentimeter"},
+  {co:"Flower", n:"13", what:"Energy / virtual-power-plant scaleup · Stockholm", url:"https://flower.teamtailor.com/jobs"},
+  {co:"Paradox Interactive", n:"10", what:"Grand-strategy game studio · Södermalm", url:"https://career.paradoxplaza.com/jobs"},
+  {co:"Anyfin", n:"9", what:"Consumer-fintech scaleup · Stockholm HQ", url:"https://career.anyfin.com/jobs"},
 ];
 
 const medal = r => r===1?"g":r===2?"s":r===3?"b":"";
