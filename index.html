@@ -67,7 +67,7 @@
 <div class="wrap">
   <h1>🏆 Your Stockholm Job Board</h1>
   <div class="sub">L&amp;D · Leadership development · Community — exciting tech &amp; startup ecosystem, central Stockholm only.</div>
-  <div class="fresh">✅ Freshly checked 26 Aug 2026 — swept ~85 tracked + newly-raised companies across careers pages, ATS boards, The Hub, StartupMap &amp; LinkedIn; every listed link opened in a browser and confirmed live today.</div>
+  <div class="fresh">✅ Freshly checked 27 Aug 2026 — swept ~90 tracked + newly-raised companies across careers pages, ATS boards, The Hub, StartupMap &amp; LinkedIn; every listed link opened in a browser and confirmed live today. No new matching roles surfaced today — all your live roles carried over and were re-verified.</div>
 
   <div class="filters">
     <button class="active" data-f="all">Everything</button>
@@ -117,33 +117,33 @@ const jobs = [
    why:"Run the player community — social channels, Discord, forums, feedback — at the Vermintide / Darktide studio in Söder. More junior than your level, but a fun, creative community seat right in central Stockholm.",
    badges:["profitable gaming","Södermalm"], url:"https://jobs.fatsharkgames.com/jobs/7896068-community-manager"},
   {rank:11, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Operations Specialist", company:"Legora", loc:"Stockholm — Norrmalm (HQ, on-site)", fit:58,
-   why:"New this week: a People Ops seat running and scaling people processes across the employee lifecycle at legal-AI unicorn Legora. More operational than developmental, but a foot in the door at one of the city's hottest scaleups if you're open to the ops side.",
-   badges:["legal-AI rocket","people ops","NEW"], url:"https://jobs.ashbyhq.com/legora/75a7ce15-8c1f-4fa8-9444-b53b3ba43d0a"},
+   why:"A People Ops seat running and scaling people processes across the employee lifecycle at legal-AI unicorn Legora. More operational than developmental, but a foot in the door at one of the city's hottest scaleups if you're open to the ops side.",
+   badges:["legal-AI rocket","people ops"], url:"https://jobs.ashbyhq.com/legora/75a7ce15-8c1f-4fa8-9444-b53b3ba43d0a"},
   {rank:12, cat:"people", catLabel:"People", role:"HR Business Partner", company:"Waitwhile", loc:"Stockholm — central (hybrid)", fit:54,
    why:"The first dedicated HR hire at Waitwhile, a Stockholm-founded scheduling SaaS (now part of Allegion). Broad generalist HRBP scope — you'd shape people practices from the ground up. A step toward generalist HR rather than pure L&D, but a build-it-yourself people seat. Swedish + English required.",
    badges:["SaaS scaleup","build from scratch"], url:"https://careers.waitwhile.com/jobs/7951577-hr-business-partner"},
   {rank:13, cat:"people", catLabel:"People (L&D-adjacent)", role:"People Coordinator", company:"Avalanche Studios", loc:"Stockholm — Södermalm (HQ, on-site)", fit:52,
-   why:"New this week: coordinate day-to-day People operations for the Just Cause / Contraband studio (fixed-term). It's junior and admin-leaning, well below your level — but it's an in-house People seat at a well-known central-Stockholm game studio if you want a way in.",
-   badges:["AAA gaming","junior · fixed-term","NEW"], url:"https://jobs.lever.co/avalanchestudios/7bcd140b-b7ee-4d9b-9569-15927d04f464"},
+   why:"Coordinate day-to-day People operations for the Just Cause / Contraband studio (part-time 60%, fixed-term). It's junior and admin-leaning, well below your level — but it's an in-house People seat at a well-known central-Stockholm game studio if you want a way in.",
+   badges:["AAA gaming","junior · fixed-term"], url:"https://jobs.lever.co/avalanchestudios/7bcd140b-b7ee-4d9b-9569-15927d04f464"},
   {rank:14, cat:"community", catLabel:"Community", role:"Event & Marketing Intern — Platform & Community", company:"Antler Sweden", loc:"Stockholm — central (Norrmalm, on-site)", fit:46,
-   why:"New this week: plan and run events and community activities for Antler's Swedish startup platform. It's an internship and marketing-leaning — far below your level — but it sits dead-centre of the startup ecosystem and the community-&-events cluster you love. Flagging it in case you want a foot in Antler's door.",
-   badges:["VC / startup ecosystem","internship","NEW"], url:"https://antler.applytojob.com/apply/KzZTkHFY1B/Event-And-Marketing-Intern-Antler-Sweden-2026"},
+   why:"Plan and run events and community activities for Antler's Swedish startup platform. It's an internship and marketing-leaning — far below your level — but it sits dead-centre of the startup ecosystem and the community-&-events cluster you love. Flagging it in case you want a foot in Antler's door.",
+   badges:["VC / startup ecosystem","internship"], url:"https://antler.applytojob.com/apply/KzZTkHFY1B/Event-And-Marketing-Intern-Antler-Sweden-2026"},
   {rank:15, cat:"people", catLabel:"People", role:"HR Generalist", company:"Einride", loc:"Stockholm or Gothenburg — pick Stockholm", fit:44,
    why:"A broad generalist HR seat at Einride, the electric- & autonomous-freight scaleup, supporting org-wide people processes. It's generalist HR rather than a dedicated L&D / org-dev role, so it's a stretch from your focus — but listed for Stockholm and worth a look only if you're open to a wide people remit.",
    badges:["deep-tech scaleup","generalist HR"], url:"https://einride.tech/careers"},
 ];
 
 const fastest = [
-  {co:"Legora", n:"60", what:"Legal-AI unicorn · Stockholm HQ (central)", url:"https://jobs.ashbyhq.com/legora"},
-  {co:"Lovable", n:"53", what:"AI app-builder unicorn · Norrmalm/City", url:"https://jobs.ashbyhq.com/lovable"},
+  {co:"Legora", n:"61", what:"Legal-AI unicorn · Stockholm HQ (central)", url:"https://legora.com/careers"},
+  {co:"Lovable", n:"52", what:"AI app-builder unicorn · Norrmalm/City", url:"https://lovable.dev/careers?location=Stockholm"},
   {co:"Spotify", n:"23", what:"Music-tech · Norrmalm HQ", url:"https://www.lifeatspotify.com/jobs?l=stockholm"},
-  {co:"Voi", n:"~19", what:"Micro-mobility scaleup · central Stockholm", url:"https://careers.voi.com/jobs"},
+  {co:"Kry", n:"~20", what:"Digital-health scaleup · central Stockholm (mostly clinical roles)", url:"https://career.kry.se/jobs"},
+  {co:"Voi", n:"19", what:"Micro-mobility scaleup · central Stockholm", url:"https://careers.voi.com/jobs"},
+  {co:"Avalanche Studios", n:"18", what:"AAA game studio · Södermalm", url:"https://jobs.lever.co/avalanchestudios"},
   {co:"Embark Studios", n:"18", what:"AAA game studio · central Stockholm", url:"https://careers.embark-studios.com/jobs"},
-  {co:"Avalanche Studios", n:"15", what:"AAA game studio · Södermalm", url:"https://jobs.lever.co/avalanchestudios"},
-  {co:"Mentimeter", n:"~15", what:"Interactive-presentation SaaS · Vasastan", url:"https://job-boards.greenhouse.io/mentimeter"},
-  {co:"Flower", n:"12", what:"Energy / virtual-power-plant scaleup · Stockholm", url:"https://flower.teamtailor.com/jobs"},
-  {co:"Paradox Interactive", n:"~10", what:"Grand-strategy game studio · Södermalm", url:"https://career.paradoxplaza.com/jobs"},
-  {co:"Anyfin", n:"9", what:"Consumer-fintech scaleup · Östermalm HQ", url:"https://career.anyfin.com/jobs"},
+  {co:"Neko Health", n:"18", what:"Health-scanning scaleup · central Stockholm", url:"https://jobs.ashbyhq.com/neko-health"},
+  {co:"Mentimeter", n:"15", what:"Interactive-presentation SaaS · Vasastan", url:"https://job-boards.greenhouse.io/mentimeter"},
+  {co:"Flower", n:"13", what:"Energy / virtual-power-plant scaleup · Stockholm", url:"https://flower.teamtailor.com/jobs"},
 ];
 
 const medal = r => r===1?"g":r===2?"s":r===3?"b":"";
